@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'class11_physics_page.dart';
+import 'class11_chemistry_page.dart';
+import 'class11_mathematics_page.dart';
+import 'class11_biology_page.dart';
 
 class Class11Page extends StatelessWidget {
   const Class11Page({super.key});
@@ -22,7 +25,7 @@ class Class11Page extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const PhysicsSubjectPage(),
+                    builder: (context) => const Class11PhysicsPage(),
                   ),
                 );
               },
@@ -33,7 +36,14 @@ class Class11Page extends StatelessWidget {
             SubjectCard(
               icon: Icons.biotech,
               title: "Chemistry",
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const Class11ChemistryPage(),
+                  ),
+                );
+              },
             ),
 
             const SizedBox(height: 15),
@@ -41,7 +51,14 @@ class Class11Page extends StatelessWidget {
             SubjectCard(
               icon: Icons.calculate,
               title: "Mathematics",
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const Class11MathematicsPage(),
+                  ),
+                );
+              },
             ),
 
             const SizedBox(height: 15),
@@ -49,7 +66,14 @@ class Class11Page extends StatelessWidget {
             SubjectCard(
               icon: Icons.eco,
               title: "Biology",
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const Class11BiologyPage(),
+                  ),
+                );
+              },
             ),
           ],
         ),
@@ -61,13 +85,13 @@ class Class11Page extends StatelessWidget {
 class SubjectCard extends StatelessWidget {
   final IconData icon;
   final String title;
-  final VoidCallback? onTap;
+  final VoidCallback onTap;
 
   const SubjectCard({
     super.key,
     required this.icon,
     required this.title,
-    this.onTap,
+    required this.onTap,
   });
 
   @override

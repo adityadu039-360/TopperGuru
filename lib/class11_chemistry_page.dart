@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
-class ChemistrySubjectPage extends StatelessWidget {
-  const ChemistrySubjectPage({super.key});
+class Class11ChemistryPage extends StatelessWidget {
+  const Class11ChemistryPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Chemistry"),
+        title: const Text("11th Chemistry"),
         centerTitle: true,
       ),
       body: const Center(
         child: Text(
-          "Chemistry Notes Coming Soon",
+          "11th Chemistry Notes Coming Soon",
           style: TextStyle(
             fontSize: 22,
             fontWeight: FontWeight.bold,
