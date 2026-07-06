@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'class11_physics_page.dart';
 
 class Class11Page extends StatelessWidget {
   const Class11Page({super.key});
@@ -17,21 +18,38 @@ class Class11Page extends StatelessWidget {
             SubjectCard(
               icon: Icons.science,
               title: "Physics",
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const PhysicsSubjectPage(),
+                  ),
+                );
+              },
             ),
-            SizedBox(height: 15),
+
+            const SizedBox(height: 15),
+
             SubjectCard(
               icon: Icons.biotech,
               title: "Chemistry",
+              onTap: () {},
             ),
-            SizedBox(height: 15),
+
+            const SizedBox(height: 15),
+
             SubjectCard(
               icon: Icons.calculate,
               title: "Mathematics",
+              onTap: () {},
             ),
-            SizedBox(height: 15),
+
+            const SizedBox(height: 15),
+
             SubjectCard(
               icon: Icons.eco,
               title: "Biology",
+              onTap: () {},
             ),
           ],
         ),
@@ -43,11 +61,13 @@ class Class11Page extends StatelessWidget {
 class SubjectCard extends StatelessWidget {
   final IconData icon;
   final String title;
+  final VoidCallback? onTap;
 
   const SubjectCard({
     super.key,
     required this.icon,
     required this.title,
+    this.onTap,
   });
 
   @override
@@ -62,12 +82,13 @@ class SubjectCard extends StatelessWidget {
         ),
         title: Text(
           title,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
           ),
         ),
-        trailing: Icon(Icons.arrow_forward_ios),
+        trailing: const Icon(Icons.arrow_forward_ios),
+        onTap: onTap,
       ),
     );
   }
