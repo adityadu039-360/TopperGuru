@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'class12_physics_page.dart';
+import 'class12_chemistry_page.dart';
+import 'class12_mathematics_page.dart';
+import 'class12_biology_page.dart';
 
 class Class12Page extends StatelessWidget {
   const Class12Page({super.key});
@@ -35,7 +39,14 @@ class Class12Page extends StatelessWidget {
               icon: Icons.science,
               title: "Physics",
               color: Colors.blue,
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const Class12PhysicsPage(),
+                  ),
+                );
+              },
             ),
 
             const SizedBox(height: 15),
@@ -44,7 +55,14 @@ class Class12Page extends StatelessWidget {
               icon: Icons.biotech,
               title: "Chemistry",
               color: Colors.green,
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const Class12ChemistryPage(),
+                  ),
+                );
+              },
             ),
 
             const SizedBox(height: 15),
@@ -53,7 +71,14 @@ class Class12Page extends StatelessWidget {
               icon: Icons.calculate,
               title: "Mathematics",
               color: Colors.orange,
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const Class12MathematicsPage(),
+                  ),
+                );
+              },
             ),
 
             const SizedBox(height: 15),
@@ -62,7 +87,14 @@ class Class12Page extends StatelessWidget {
               icon: Icons.eco,
               title: "Biology",
               color: Colors.red,
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const Class12BiologyPage(),
+                  ),
+                );
+              },
             ),
           ],
         ),
@@ -112,7 +144,9 @@ class SubjectCard extends StatelessWidget {
                   size: 28,
                 ),
               ),
+
               const SizedBox(width: 18),
+
               Expanded(
                 child: Text(
                   title,
@@ -122,6 +156,7 @@ class SubjectCard extends StatelessWidget {
                   ),
                 ),
               ),
+
               const Icon(
                 Icons.arrow_forward_ios_rounded,
                 color: Colors.grey,
