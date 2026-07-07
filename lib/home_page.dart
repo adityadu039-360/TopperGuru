@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'sslc_page.dart';
 import 'class11_page.dart';
+import 'class12_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -71,7 +72,14 @@ class HomePage extends StatelessWidget {
               title: "12th Standard",
               icon: Icons.auto_stories,
               color: Colors.orange,
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const Class12Page(),
+                  ),
+                );
+              },
             ),
 
             const SizedBox(height: 15),
@@ -130,9 +138,7 @@ class HomeCard extends StatelessWidget {
                   size: 28,
                 ),
               ),
-
               const SizedBox(width: 18),
-
               Expanded(
                 child: Text(
                   title,
@@ -142,7 +148,6 @@ class HomeCard extends StatelessWidget {
                   ),
                 ),
               ),
-
               const Icon(
                 Icons.arrow_forward_ios_rounded,
                 color: Colors.grey,
