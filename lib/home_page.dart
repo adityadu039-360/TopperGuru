@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'sslc_page.dart';
 import 'class11_page.dart';
 import 'class12_page.dart';
+import 'topper_corner_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -19,6 +20,7 @@ class HomePage extends StatelessWidget {
           "TopperGuru",
           style: TextStyle(
             fontWeight: FontWeight.bold,
+            fontSize: 24,
           ),
         ),
       ),
@@ -88,7 +90,14 @@ class HomePage extends StatelessWidget {
               title: "Topper Corner",
               icon: Icons.emoji_events,
               color: Colors.purple,
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const TopperCornerPage(),
+                  ),
+                );
+              },
             ),
           ],
         ),
@@ -138,7 +147,9 @@ class HomeCard extends StatelessWidget {
                   size: 28,
                 ),
               ),
+
               const SizedBox(width: 18),
+
               Expanded(
                 child: Text(
                   title,
@@ -148,6 +159,7 @@ class HomeCard extends StatelessWidget {
                   ),
                 ),
               ),
+
               const Icon(
                 Icons.arrow_forward_ios_rounded,
                 color: Colors.grey,
