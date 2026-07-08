@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'passing_package_page.dart';
+import 'scoring_package_page.dart';
 
 class Class12MathematicsPage extends StatelessWidget {
   const Class12MathematicsPage({super.key});
@@ -24,14 +26,28 @@ class Class12MathematicsPage extends StatelessWidget {
               title: "Passing Package",
               icon: Icons.menu_book,
               color: Colors.green,
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const PassingPackagePage(),
+                  ),
+                );
+              },
             ),
             const SizedBox(height: 20),
             PackageCard(
               title: "Scoring Package",
               icon: Icons.workspace_premium,
               color: Colors.orange,
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ScoringPackagePage(),
+                  ),
+                );
+              },
             ),
           ],
         ),

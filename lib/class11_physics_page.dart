@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'passing_package_page.dart';
+import 'scoring_package_page.dart';
 
 class Class11PhysicsPage extends StatelessWidget {
   const Class11PhysicsPage({super.key});
@@ -24,16 +26,28 @@ class Class11PhysicsPage extends StatelessWidget {
               title: "Passing Package",
               icon: Icons.menu_book,
               color: Colors.green,
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const PassingPackagePage(),
+                  ),
+                );
+              },
             ),
-
             const SizedBox(height: 20),
-
             PackageCard(
               title: "Scoring Package",
               icon: Icons.workspace_premium,
               color: Colors.orange,
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ScoringPackagePage(),
+                  ),
+                );
+              },
             ),
           ],
         ),
@@ -67,24 +81,15 @@ class PackageCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(18),
         onTap: onTap,
         child: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 18,
-            vertical: 18,
-          ),
+          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 18),
           child: Row(
             children: [
               CircleAvatar(
                 radius: 24,
                 backgroundColor: color.withOpacity(0.15),
-                child: Icon(
-                  icon,
-                  color: color,
-                  size: 28,
-                ),
+                child: Icon(icon, color: color, size: 28),
               ),
-
               const SizedBox(width: 18),
-
               Expanded(
                 child: Text(
                   title,
@@ -94,7 +99,6 @@ class PackageCard extends StatelessWidget {
                   ),
                 ),
               ),
-
               const Icon(Icons.arrow_forward_ios),
             ],
           ),
