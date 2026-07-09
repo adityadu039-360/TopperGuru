@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'kannada_medium_page.dart';
+import 'english_medium_page.dart';
 
 class SSLCPage extends StatelessWidget {
   const SSLCPage({super.key});
@@ -31,7 +32,12 @@ class SSLCPage extends StatelessWidget {
 
             ElevatedButton(
               onPressed: () {
-                // English Medium page will be added later
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const EnglishMediumPage(),
+                  ),
+                );
               },
               child: const Text('English Medium'),
             ),
