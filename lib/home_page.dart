@@ -1,47 +1,103 @@
 import 'package:flutter/material.dart';
 import 'sslc_page.dart';
 import 'class11_page.dart';
-import 'class12_page.dart';
-import 'topper_corner_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
+  Widget buildCard({
+    required BuildContext context,
+    required IconData icon,
+    required Color color,
+    required String title,
+    required String subtitle,
+    required VoidCallback onTap,
+  }) {
+    return Card(
+      elevation: 6,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(18),
+      ),
+      child: ListTile(
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 20,
+          vertical: 12,
+        ),
+        leading: CircleAvatar(
+          radius: 24,
+          backgroundColor: color.withOpacity(0.15),
+          child: Icon(
+            icon,
+            color: color,
+            size: 28,
+          ),
+        ),
+        title: Text(
+          title,
+          style: const TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        subtitle: Text(
+          subtitle,
+          style: const TextStyle(
+            fontSize: 14,
+          ),
+        ),
+        trailing: const Icon(Icons.arrow_forward_ios),
+        onTap: onTap,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey.shade100,
       appBar: AppBar(
-        backgroundColor: Colors.blue,
-        foregroundColor: Colors.white,
-        elevation: 0,
+        title: const Text("TopperGuru"),
         centerTitle: true,
-        title: const Text(
-          "TopperGuru",
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 24,
-          ),
-        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
-        child: ListView(
+        child: Column(
           children: [
+            const SizedBox(height: 15),
+
+            const Icon(
+              Icons.school,
+              size: 70,
+              color: Colors.blue,
+            ),
+
+            const SizedBox(height: 10),
+
             const Text(
-              "Choose Your Class",
+              "TopperGuru",
               style: TextStyle(
-                fontSize: 24,
+                fontSize: 30,
                 fontWeight: FontWeight.bold,
               ),
             ),
 
-            const SizedBox(height: 20),
+            const SizedBox(height: 6),
 
-            HomeCard(
-              title: "10th Standard",
-              icon: Icons.school,
+            const Text(
+              "Learn Smart. Score Higher.",
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.grey,
+              ),
+            ),
+
+            const SizedBox(height: 30),
+
+            buildCard(
+              context: context,
+              icon: Icons.menu_book,
               color: Colors.blue,
+              title: "10th Standard",
+              subtitle: "SSLC Study Materials",
               onTap: () {
                 Navigator.push(
                   context,
@@ -54,10 +110,12 @@ class HomePage extends StatelessWidget {
 
             const SizedBox(height: 15),
 
-            HomeCard(
-              title: "11th Standard",
-              icon: Icons.menu_book,
+            buildCard(
+              context: context,
+              icon: Icons.science,
               color: Colors.green,
+              title: "11th Standard",
+              subtitle: "PUC First Year",
               onTap: () {
                 Navigator.push(
                   context,
@@ -70,102 +128,26 @@ class HomePage extends StatelessWidget {
 
             const SizedBox(height: 15),
 
-            HomeCard(
-              title: "12th Standard",
+            buildCard(
+              context: context,
               icon: Icons.auto_stories,
               color: Colors.orange,
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const Class12Page(),
-                  ),
-                );
-              },
+              title: "12th Standard",
+              subtitle: "PUC Second Year",
+              onTap: () {},
             ),
 
             const SizedBox(height: 15),
 
-            HomeCard(
-              title: "Topper Corner",
+            buildCard(
+              context: context,
               icon: Icons.emoji_events,
               color: Colors.purple,
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const TopperCornerPage(),
-                  ),
-                );
-              },
+              title: "Topper Corner",
+              subtitle: "Tips & Motivation",
+              onTap: () {},
             ),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-class HomeCard extends StatelessWidget {
-  final String title;
-  final IconData icon;
-  final Color color;
-  final VoidCallback onTap;
-
-  const HomeCard({
-    super.key,
-    required this.title,
-    required this.icon,
-    required this.color,
-    required this.onTap,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      elevation: 8,
-      shadowColor: Colors.black26,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(18),
-      ),
-      child: InkWell(
-        borderRadius: BorderRadius.circular(18),
-        onTap: onTap,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 18,
-            vertical: 18,
-          ),
-          child: Row(
-            children: [
-              CircleAvatar(
-                radius: 24,
-                backgroundColor: color.withOpacity(0.15),
-                child: Icon(
-                  icon,
-                  color: color,
-                  size: 28,
-                ),
-              ),
-
-              const SizedBox(width: 18),
-
-              Expanded(
-                child: Text(
-                  title,
-                  style: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-
-              const Icon(
-                Icons.arrow_forward_ios_rounded,
-                color: Colors.grey,
-              ),
-            ],
-          ),
         ),
       ),
     );
