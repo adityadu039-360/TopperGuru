@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'sslc_page.dart';
 import 'class11_page.dart';
 import 'class12_page.dart';
+import 'downloads_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -60,7 +61,7 @@ class HomePage extends StatelessWidget {
         title: const Text("TopperGuru"),
         centerTitle: true,
       ),
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Column(
           children: [
@@ -150,11 +151,31 @@ class HomePage extends StatelessWidget {
 
             buildCard(
               context: context,
+              icon: Icons.download,
+              color: Colors.indigo,
+              title: "Downloads",
+              subtitle: "View your downloaded PDFs",
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const DownloadsPage(),
+                  ),
+                );
+              },
+            ),
+
+            const SizedBox(height: 15),
+
+            buildCard(
+              context: context,
               icon: Icons.emoji_events,
               color: Colors.purple,
               title: "Topper Corner",
               subtitle: "Tips & Motivation",
-              onTap: () {},
+              onTap: () {
+                // Topper Corner page will be added later
+              },
             ),
           ],
         ),
