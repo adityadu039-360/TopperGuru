@@ -1,50 +1,67 @@
 import 'package:flutter/material.dart';
 
-class KannadaScoringPackagePage extends StatelessWidget {
-  const KannadaScoringPackagePage({super.key});
+class KannadaScoreBoosterPage extends StatelessWidget {
+  const KannadaScoreBoosterPage({super.key});
+
+  Widget pdfCard(String title) {
+    return Card(
+      elevation: 4,
+      margin: const EdgeInsets.symmetric(vertical: 8),
+      child: ListTile(
+        leading: const Icon(
+          Icons.trending_up,
+          color: Colors.blue,
+          size: 32,
+        ),
+        title: Text(
+          title,
+          style: const TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        subtitle: const Text("Score Booster content will be available soon"),
+        trailing: const Icon(Icons.lock_outline),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Scoring Package"),
+        title: const Text("Score Booster"),
         centerTitle: true,
       ),
-      body: const Center(
-        child: Padding(
-          padding: EdgeInsets.all(20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(
-                Icons.workspace_premium,
-                size: 80,
-                color: Colors.orange,
-              ),
-              SizedBox(height: 20),
-              Text(
-                "Scoring Package",
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: ListView(
+          children: [
+            const Icon(
+              Icons.trending_up,
+              color: Colors.blue,
+              size: 70,
+            ),
+
+            const SizedBox(height: 15),
+
+            const Center(
+              child: Text(
+                "Kannada Medium",
                 style: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 10),
-              Text(
-                "Kannada Medium Premium PDFs will be available here.",
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 18),
-              ),
-              SizedBox(height: 15),
-              Text(
-                "Coming Soon...",
-                style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.grey,
-                ),
-              ),
-            ],
-          ),
+            ),
+
+            const SizedBox(height: 30),
+
+            pdfCard("Score Booster 1"),
+            pdfCard("Score Booster 2"),
+            pdfCard("Score Booster 3"),
+            pdfCard("Score Booster 4"),
+            pdfCard("Score Booster 5"),
+          ],
         ),
       ),
     );
