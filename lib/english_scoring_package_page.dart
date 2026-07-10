@@ -3,6 +3,26 @@ import 'package:flutter/material.dart';
 class EnglishScoringPackagePage extends StatelessWidget {
   const EnglishScoringPackagePage({super.key});
 
+  Widget pdfCard(String title) {
+    return Card(
+      elevation: 4,
+      margin: const EdgeInsets.symmetric(vertical: 8),
+      child: ListTile(
+        leading: const Icon(
+          Icons.workspace_premium,
+          color: Colors.orange,
+          size: 32,
+        ),
+        title: Text(
+          title,
+          style: const TextStyle(fontWeight: FontWeight.bold),
+        ),
+        subtitle: const Text("Premium PDF will be available soon"),
+        trailing: const Icon(Icons.lock_outline),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -10,41 +30,32 @@ class EnglishScoringPackagePage extends StatelessWidget {
         title: const Text("Scoring Package"),
         centerTitle: true,
       ),
-      body: const Center(
-        child: Padding(
-          padding: EdgeInsets.all(20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(
-                Icons.workspace_premium,
-                size: 80,
-                color: Colors.orange,
-              ),
-              SizedBox(height: 20),
-              Text(
-                "Scoring Package",
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: ListView(
+          children: [
+            const Icon(
+              Icons.workspace_premium,
+              color: Colors.orange,
+              size: 70,
+            ),
+            const SizedBox(height: 15),
+            const Center(
+              child: Text(
+                "English Medium",
                 style: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 10),
-              Text(
-                "English Medium Premium PDFs will be available here.",
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 18),
-              ),
-              SizedBox(height: 15),
-              Text(
-                "Coming Soon...",
-                style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.grey,
-                ),
-              ),
-            ],
-          ),
+            ),
+            const SizedBox(height: 30),
+            pdfCard("Premium PDF 1"),
+            pdfCard("Premium PDF 2"),
+            pdfCard("Premium PDF 3"),
+            pdfCard("Premium PDF 4"),
+            pdfCard("Premium PDF 5"),
+          ],
         ),
       ),
     );

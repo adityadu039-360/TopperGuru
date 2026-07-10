@@ -1,50 +1,61 @@
 import 'package:flutter/material.dart';
 
-class KannadaScoreBoosterPage extends StatelessWidget {
-  const KannadaScoreBoosterPage({super.key});
+class KannadaScoringPackagePage extends StatelessWidget {
+  const KannadaScoringPackagePage({super.key});
+
+  Widget pdfCard(String title) {
+    return Card(
+      elevation: 4,
+      margin: const EdgeInsets.symmetric(vertical: 8),
+      child: ListTile(
+        leading: const Icon(
+          Icons.workspace_premium,
+          color: Colors.orange,
+          size: 32,
+        ),
+        title: Text(
+          title,
+          style: const TextStyle(fontWeight: FontWeight.bold),
+        ),
+        subtitle: const Text("Premium PDF will be available soon"),
+        trailing: const Icon(Icons.lock_outline),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Score Booster"),
+        title: const Text("Scoring Package"),
         centerTitle: true,
       ),
-      body: const Center(
-        child: Padding(
-          padding: EdgeInsets.all(20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(
-                Icons.trending_up,
-                size: 80,
-                color: Colors.blue,
-              ),
-              SizedBox(height: 20),
-              Text(
-                "Score Booster",
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: ListView(
+          children: [
+            const Icon(
+              Icons.workspace_premium,
+              color: Colors.orange,
+              size: 70,
+            ),
+            const SizedBox(height: 15),
+            const Center(
+              child: Text(
+                "Kannada Medium",
                 style: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 10),
-              Text(
-                "Score Booster content will be available here.",
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 18),
-              ),
-              SizedBox(height: 15),
-              Text(
-                "Coming Soon...",
-                style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.grey,
-                ),
-              ),
-            ],
-          ),
+            ),
+            const SizedBox(height: 30),
+            pdfCard("Premium PDF 1"),
+            pdfCard("Premium PDF 2"),
+            pdfCard("Premium PDF 3"),
+            pdfCard("Premium PDF 4"),
+            pdfCard("Premium PDF 5"),
+          ],
         ),
       ),
     );
