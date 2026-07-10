@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'passing_package_page.dart';
-import 'scoring_package_page.dart';
-import 'score_booster_page.dart';
+import 'english_passing_package_page.dart';
+import 'english_scoring_package_page.dart';
+import 'english_score_booster_page.dart';
 
 class EnglishMediumPage extends StatelessWidget {
   const EnglishMediumPage({super.key});
@@ -52,8 +52,6 @@ class EnglishMediumPage extends StatelessWidget {
       ),
     );
   }
-
-  const EnglishMediumPage._();
 
   @override
   Widget build(BuildContext context) {
@@ -106,7 +104,8 @@ class EnglishMediumPage extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const PassingPackagePage(),
+                    builder: (context) =>
+                    const EnglishPassingPackagePage(),
                   ),
                 );
               },
@@ -124,7 +123,8 @@ class EnglishMediumPage extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const ScoringPackagePage(),
+                    builder: (context) =>
+                    const EnglishScoringPackagePage(),
                   ),
                 );
               },
@@ -142,7 +142,8 @@ class EnglishMediumPage extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const ScoreBoosterPage(),
+                    builder: (context) =>
+                    const EnglishScoreBoosterPage(),
                   ),
                 );
               },

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'passing_package_page.dart';
-import 'scoring_package_page.dart';
-import 'score_booster_page.dart';
+import 'kannada_passing_package_page.dart';
+import 'kannada_scoring_package_page.dart';
+import 'kannada_score_booster_page.dart';
 
 class KannadaMediumPage extends StatelessWidget {
   const KannadaMediumPage({super.key});
@@ -52,8 +52,6 @@ class KannadaMediumPage extends StatelessWidget {
       ),
     );
   }
-
-  const KannadaMediumPage._();
 
   @override
   Widget build(BuildContext context) {
@@ -106,7 +104,8 @@ class KannadaMediumPage extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const PassingPackagePage(),
+                    builder: (context) =>
+                    const KannadaPassingPackagePage(),
                   ),
                 );
               },
@@ -124,7 +123,8 @@ class KannadaMediumPage extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const ScoringPackagePage(),
+                    builder: (context) =>
+                    const KannadaScoringPackagePage(),
                   ),
                 );
               },
@@ -142,7 +142,8 @@ class KannadaMediumPage extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const ScoreBoosterPage(),
+                    builder: (context) =>
+                    const KannadaScoreBoosterPage(),
                   ),
                 );
               },
