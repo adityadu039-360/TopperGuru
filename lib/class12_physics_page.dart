@@ -33,32 +33,55 @@ class Subject12Page extends StatelessWidget {
     required this.scoringPage,
   });
 
-  Widget buildCard(BuildContext context, IconData icon, Color color,
-      String title, String subtitle, Widget page) {
+  Widget buildCard({
+    required BuildContext context,
+    required IconData icon,
+    required Color color,
+    required String title,
+    required String subtitle,
+    required Widget page,
+  }) {
     return Card(
-      elevation: 6,
+      elevation: 8,
+      shadowColor: color.withOpacity(0.25),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: BorderRadius.circular(22),
       ),
       child: ListTile(
-        contentPadding:
-        const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 20,
+          vertical: 14,
+        ),
         leading: CircleAvatar(
-          radius: 24,
+          radius: 28,
           backgroundColor: color.withOpacity(0.15),
-          child: Icon(icon, color: color),
+          child: Icon(
+            icon,
+            color: color,
+            size: 30,
+          ),
         ),
         title: Text(
           title,
           style: const TextStyle(
-              fontSize: 20, fontWeight: FontWeight.bold),
+            fontSize: 21,
+            fontWeight: FontWeight.bold,
+          ),
         ),
-        subtitle: Text(subtitle),
-        trailing: const Icon(Icons.arrow_forward_ios),
+        subtitle: Text(
+          subtitle,
+          style: const TextStyle(
+            fontSize: 15,
+            color: Colors.grey,
+          ),
+        ),
+        trailing: const Icon(Icons.arrow_forward_ios_rounded),
         onTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (_) => page),
+            MaterialPageRoute(
+              builder: (_) => page,
+            ),
           );
         },
       ),
@@ -72,36 +95,91 @@ class Subject12Page extends StatelessWidget {
         title: Text(title),
         centerTitle: true,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(18),
         child: Column(
           children: [
-            Icon(icon, size: 70, color: color),
-            const SizedBox(height: 10),
+            Hero(
+              tag: title,
+              child: CircleAvatar(
+                radius: 48,
+                backgroundColor: color.withOpacity(0.15),
+                child: Icon(
+                  icon,
+                  color: color,
+                  size: 55,
+                ),
+              ),
+            ),
+
+            const SizedBox(height: 20),
+
             Text(
               title,
               style: const TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold),
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-            const Text("Choose a package"),
+
+            const SizedBox(height: 8),
+
+            const Text(
+              "Choose your study package",
+              style: TextStyle(
+                fontSize: 17,
+                color: Colors.grey,
+              ),
+            ),
+
+            const SizedBox(height: 35),
+
+            buildCard(
+              context: context,
+              icon: Icons.menu_book_rounded,
+              color: Colors.green,
+              title: "Passing Package",
+              subtitle: "Essential PDFs to pass the exam",
+              page: passingPage,
+            ),
+
+            const SizedBox(height: 18),
+
+            buildCard(
+              context: context,
+              icon: Icons.workspace_premium_rounded,
+              color: Colors.orange,
+              title: "Scoring Package",
+              subtitle: "Premium notes for high scores",
+              page: scoringPage,
+            ),
+
             const SizedBox(height: 30),
-            buildCard(
-              context,
-              Icons.menu_book,
-              Colors.green,
-              "Passing Package",
-              "Important PDFs",
-              passingPage,
-            ),
-            const SizedBox(height: 15),
-            buildCard(
-              context,
-              Icons.workspace_premium,
-              Colors.orange,
-              "Scoring Package",
-              "High scoring notes",
-              scoringPage,
+
+            Container(
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: Colors.blue.shade50,
+                borderRadius: BorderRadius.circular(18),
+              ),
+              child: const Row(
+                children: [
+                  Icon(
+                    Icons.info_outline,
+                    color: Colors.blue,
+                  ),
+                  SizedBox(width: 12),
+                  Expanded(
+                    child: Text(
+                      "All 2nd PUC study materials are FREE for this academic year.",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        color: Colors.blue,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
