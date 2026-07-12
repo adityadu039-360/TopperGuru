@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'weekly_challenge_page.dart';
+import 'login_page.dart';
 
 class AccountPage extends StatelessWidget {
 const AccountPage({super.key});
@@ -66,23 +67,55 @@ color: Colors.white,
 
 const SizedBox(height: 15),
 
-const Text(
-"Guest User",
-style: TextStyle(
-fontSize: 28,
-fontWeight: FontWeight.bold,
-),
-),
+  const Text(
+    "Guest User",
+    style: TextStyle(
+      fontSize: 28,
+      fontWeight: FontWeight.bold,
+    ),
+  ),
 
-const SizedBox(height: 5),
+  const SizedBox(height: 5),
 
-const Text(
-"Login to unlock all features",
-style: TextStyle(
-color: Colors.grey,
-fontSize: 15,
-),
-),
+  const Text(
+    "Login to unlock all features",
+    style: TextStyle(
+      color: Colors.grey,
+      fontSize: 15,
+    ),
+  ),
+
+  const SizedBox(height: 20),
+
+  SizedBox(
+    width: double.infinity,
+    height: 55,
+    child: ElevatedButton.icon(
+      icon: const Icon(Icons.login),
+      label: const Text(
+        "Login",
+        style: TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.blue,
+        foregroundColor: Colors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15),
+        ),
+      ),
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (_) => const LoginPage(),
+          ),
+        );
+      },
+    ),
+  ),
 
 const SizedBox(height: 30),
 
