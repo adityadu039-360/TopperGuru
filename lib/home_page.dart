@@ -172,4 +172,56 @@ const SizedBox(height: 25),
 ],
 ),
 );
+}  @override
+Widget build(BuildContext context) {
+final List<Widget> pages = [
+homeBody(),
+const DownloadsPage(),
+const AccountPage(),
+];
+
+return Scaffold(
+appBar: AppBar(
+title: const Text("TopperGuru"),
+centerTitle: true,
+),
+
+body: pages[_selectedIndex],
+
+bottomNavigationBar: NavigationBar(
+selectedIndex: _selectedIndex,
+height: 75,
+backgroundColor: Colors.white,
+indicatorColor: Colors.blue.shade100,
+labelBehavior:
+NavigationDestinationLabelBehavior.alwaysShow,
+
+onDestinationSelected: (index) {
+setState(() {
+_selectedIndex = index;
+});
+},
+
+destinations: const [
+
+NavigationDestination(
+icon: Icon(Icons.home_outlined),
+selectedIcon: Icon(Icons.home),
+label: "Home",
+),
+
+NavigationDestination(
+icon: Icon(Icons.download_outlined),
+selectedIcon: Icon(Icons.download),
+label: "Downloads",
+),
+
+NavigationDestination(
+icon: Icon(Icons.person_outline),
+selectedIcon: Icon(Icons.person),
+label: "Account",
+),
+],
+),
+);
 }
