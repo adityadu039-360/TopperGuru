@@ -103,6 +103,54 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
 
+          const SizedBox(height: 20),
+
+          Container(
+            width: double.infinity,
+            padding: const EdgeInsets.all(18),
+            decoration: BoxDecoration(
+              gradient: const LinearGradient(
+                colors: [
+                  Color(0xff1976D2),
+                  Color(0xff42A5F5),
+                ],
+              ),
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: const Column(
+              children: [
+
+                Icon(
+                  Icons.celebration,
+                  color: Colors.white,
+                  size: 42,
+                ),
+
+                SizedBox(height: 10),
+
+                Text(
+                  "🎉 FREE FOR 2026",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+
+                SizedBox(height: 8),
+
+                Text(
+                  "All Study Materials are FREE\nfor every Karnataka Student.",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                ),
+              ],
+            ),
+          ),
+
           const SizedBox(height: 30),
 
           buildCard(
