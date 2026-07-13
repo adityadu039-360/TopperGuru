@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'weekly_challenge_page.dart';
 import 'login_page.dart';
 import 'about_page.dart';
+import 'settings_page.dart';
 
 class AccountPage extends StatelessWidget {
 const AccountPage({super.key});
@@ -19,6 +20,10 @@ shape: RoundedRectangleBorder(
 borderRadius: BorderRadius.circular(18),
 ),
 child: ListTile(
+contentPadding: const EdgeInsets.symmetric(
+horizontal: 18,
+vertical: 10,
+),
 leading: CircleAvatar(
 radius: 24,
 backgroundColor: color.withOpacity(0.15),
@@ -46,15 +51,17 @@ onTap: onTap,
 Widget build(BuildContext context) {
 return Scaffold(
 backgroundColor: const Color(0xffF5F7FA),
-
+appBar: AppBar(
+title: const Text("Account"),
+centerTitle: true,
+),
 body: SafeArea(
 child: SingleChildScrollView(
 padding: const EdgeInsets.all(16),
-
 child: Column(
 children: [
 
-const SizedBox(height: 20),
+const SizedBox(height: 10),
 
 const CircleAvatar(
 radius: 55,
@@ -68,57 +75,72 @@ color: Colors.white,
 
 const SizedBox(height: 15),
 
-  const Text(
-    "Guest User",
-    style: TextStyle(
-      fontSize: 28,
-      fontWeight: FontWeight.bold,
-    ),
-  ),
+const Text(
+"Guest User",
+style: TextStyle(
+fontSize: 28,
+fontWeight: FontWeight.bold,
+),
+),
 
-  const SizedBox(height: 5),
+const SizedBox(height: 5),
 
-  const Text(
-    "Login to unlock all features",
-    style: TextStyle(
-      color: Colors.grey,
-      fontSize: 15,
-    ),
-  ),
+const Text(
+"Login to unlock all features",
+style: TextStyle(
+color: Colors.grey,
+fontSize: 15,
+),
+),
 
-  const SizedBox(height: 20),
+const SizedBox(height: 20),
 
-  SizedBox(
-    width: double.infinity,
-    height: 55,
-    child: ElevatedButton.icon(
-      icon: const Icon(Icons.login),
-      label: const Text(
-        "Login",
-        style: TextStyle(
-          fontSize: 18,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-      style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.blue,
-        foregroundColor: Colors.white,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15),
-        ),
-      ),
-      onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (_) => const LoginPage(),
-          ),
-        );
-      },
-    ),
-  ),
+SizedBox(
+width: double.infinity,
+height: 55,
+child: ElevatedButton.icon(
+icon: const Icon(Icons.login),
+label: const Text(
+"Login",
+style: TextStyle(
+fontSize: 18,
+fontWeight: FontWeight.bold,
+),
+),
+style: ElevatedButton.styleFrom(
+backgroundColor: Colors.blue,
+foregroundColor: Colors.white,
+shape: RoundedRectangleBorder(
+borderRadius: BorderRadius.circular(15),
+),
+),
+onPressed: () {
+Navigator.push(
+context,
+MaterialPageRoute(
+builder: (_) => const LoginPage(),
+),
+);
+},
+),
+),
 
-const SizedBox(height: 30),
+const SizedBox(height: 30),              buildTile(
+icon: Icons.settings,
+color: Colors.indigo,
+title: "Settings",
+subtitle: "Manage your preferences",
+onTap: () {
+Navigator.push(
+context,
+MaterialPageRoute(
+builder: (_) => const SettingsPage(),
+),
+);
+},
+),
+
+const SizedBox(height: 12),
 
 buildTile(
 icon: Icons.emoji_events,
@@ -157,15 +179,33 @@ content: Text(
 const SizedBox(height: 12),
 
 buildTile(
-icon: Icons.star_rate,
+icon: Icons.star,
 color: Colors.amber,
 title: "Rate App",
-subtitle: "Support TopperGuru",
+subtitle: "Rate us on Play Store",
 onTap: () {
 ScaffoldMessenger.of(context).showSnackBar(
 const SnackBar(
 content: Text(
-"Play Store rating coming soon.",
+"Play Store rating will be available after launch.",
+),
+),
+);
+},
+),
+
+const SizedBox(height: 12),
+
+buildTile(
+icon: Icons.share,
+color: Colors.green,
+title: "Share App",
+subtitle: "Invite your friends",
+onTap: () {
+ScaffoldMessenger.of(context).showSnackBar(
+const SnackBar(
+content: Text(
+"Share feature coming soon.",
 ),
 ),
 );
@@ -173,35 +213,16 @@ content: Text(
 ),
 
 const SizedBox(height: 12),              buildTile(
-    icon: Icons.share,
-    color: Colors.green,
-    title: "Share App",
-    subtitle: "Share TopperGuru with friends",
-    onTap: () {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text(
-            "Share feature coming soon.",
-          ),
-        ),
-      );
-    },
-  ),
-
-  const SizedBox(height: 12),
-
-  buildTile(
     icon: Icons.info,
     color: Colors.blue,
     title: "About App",
     subtitle: "Version 1.0.0",
     onTap: () {
-      showAboutDialog(
-        context: context,
-        applicationName: "TopperGuru",
-        applicationVersion: "1.0.0",
-        applicationLegalese:
-        "© 2026 TopperGuru",
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (_) => const AboutPage(),
+        ),
       );
     },
   ),
