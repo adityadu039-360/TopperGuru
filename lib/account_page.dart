@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'weekly_challenge_page.dart';
 import 'login_page.dart';
+import 'about_page.dart';
 
 class AccountPage extends StatelessWidget {
 const AccountPage({super.key});
