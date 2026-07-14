@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'sslc_page.dart';
 import 'class11_page.dart';
 import 'class12_page.dart';
-import 'downloads_page.dart';
-import 'account_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -13,8 +11,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _selectedIndex = 0;
-
   Widget buildCard({
     required BuildContext context,
     required IconData icon,
@@ -75,7 +71,9 @@ class _HomePageState extends State<HomePage> {
               backgroundColor: color.withOpacity(0.15),
               child: Icon(icon, color: color, size: 30),
             ),
+
             const SizedBox(height: 12),
+
             Text(
               title,
               style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
@@ -191,16 +189,13 @@ class _HomePageState extends State<HomePage> {
             childAspectRatio: 1.25,
             children: [
               subjectCard(context, Icons.science, Colors.blue, "Physics"),
-
               subjectCard(context, Icons.biotech, Colors.green, "Chemistry"),
-
               subjectCard(
                 context,
                 Icons.calculate,
                 Colors.orange,
                 "Mathematics",
               ),
-
               subjectCard(context, Icons.eco, Colors.purple, "Biology"),
             ],
           ),
@@ -308,44 +303,9 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final List<Widget> pages = [
-      homeBody(),
-      const DownloadsPage(),
-      const AccountPage(),
-    ];
-
     return Scaffold(
       appBar: AppBar(title: const Text("TopperGuru"), centerTitle: true),
-      body: pages[_selectedIndex],
-      bottomNavigationBar: NavigationBar(
-        selectedIndex: _selectedIndex,
-        height: 75,
-        backgroundColor: Colors.white,
-        indicatorColor: Colors.blue.shade100,
-        labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
-        onDestinationSelected: (index) {
-          setState(() {
-            _selectedIndex = index;
-          });
-        },
-        destinations: const [
-          NavigationDestination(
-            icon: Icon(Icons.home_outlined),
-            selectedIcon: Icon(Icons.home),
-            label: "Home",
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.download_outlined),
-            selectedIcon: Icon(Icons.download),
-            label: "Downloads",
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.person_outline),
-            selectedIcon: Icon(Icons.person),
-            label: "Account",
-          ),
-        ],
-      ),
+      body: homeBody(),
     );
   }
 }
