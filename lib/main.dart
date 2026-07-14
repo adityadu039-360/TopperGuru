@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'home_page.dart';
+import 'splash_page.dart';
 
 void main() {
   runApp(const TopperGuruApp());
@@ -30,7 +31,7 @@ class TopperGuruApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const HomePage(),
+      home: const SplashPage(),
     );
   }
 }

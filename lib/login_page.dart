@@ -1,172 +1,228 @@
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+const LoginPage({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    final TextEditingController controller = TextEditingController();
+@override
+Widget build(BuildContext context) {
+final TextEditingController controller = TextEditingController();
 
-    return Scaffold(
-      backgroundColor: const Color(0xFFF5F7FB),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 25),
-          child: Column(
-            children: [
+return Scaffold(
+backgroundColor: const Color(0xFFF5F7FB),
+body: SafeArea(
+child: SingleChildScrollView(
+padding: const EdgeInsets.symmetric(horizontal: 25),
+child: Column(
+children: [
 
-              const SizedBox(height: 50),
+const SizedBox(height: 50),
 
-              Container(
-                height: 120,
-                width: 120,
-                decoration: BoxDecoration(
-                  color: Colors.blue.shade100,
-                  shape: BoxShape.circle,
-                ),
-                child: const Icon(
-                  Icons.school,
-                  size: 70,
-                  color: Colors.blue,
-                ),
-              ),
+Container(
+height: 120,
+width: 120,
+decoration: BoxDecoration(
+color: Colors.blue.shade100,
+shape: BoxShape.circle,
+),
+child: const Icon(
+Icons.school,
+size: 70,
+color: Colors.blue,
+),
+),
 
-              const SizedBox(height: 25),
+const SizedBox(height: 25),
 
-              const Text(
-                "Welcome to TopperGuru",
-                style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+const Text(
+"Welcome to TopperGuru",
+style: TextStyle(
+fontSize: 30,
+fontWeight: FontWeight.bold,
+),
+),
 
-              const SizedBox(height: 8),
+const SizedBox(height: 8),
 
-              const Text(
-                "Login to continue your learning journey",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 16,
-                ),
-              ),
+const Text(
+"Login to continue your learning journey",
+textAlign: TextAlign.center,
+style: TextStyle(
+color: Colors.grey,
+fontSize: 16,
+),
+),
 
-              const SizedBox(height: 40),
+const SizedBox(height: 40),
 
-              TextField(
-                controller: controller,
-                keyboardType: TextInputType.emailAddress,
-                decoration: InputDecoration(
-                  hintText: "Email or Phone Number",
-                  prefixIcon: const Icon(Icons.person_outline),
-                  filled: true,
-                  fillColor: Colors.white,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(18),
-                    borderSide: BorderSide.none,
-                  ),
-                ),
-              ),
+TextField(
+controller: controller,
+keyboardType: TextInputType.emailAddress,
+decoration: InputDecoration(
+hintText: "Email or Phone Number",
+prefixIcon: const Icon(Icons.person_outline),
+filled: true,
+fillColor: Colors.white,
+border: OutlineInputBorder(
+borderRadius: BorderRadius.circular(18),
+borderSide: BorderSide.none,
+),
+),
+),
 
-              const SizedBox(height: 30),
+const SizedBox(height: 30),
 
-              SizedBox(
-                width: double.infinity,
-                height: 58,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(18),
-                    ),
-                  ),
-                  onPressed: () {
+SizedBox(
+width: double.infinity,
+height: 58,
+child: ElevatedButton(
+style: ElevatedButton.styleFrom(
+backgroundColor: Colors.blue,
+shape: RoundedRectangleBorder(
+borderRadius: BorderRadius.circular(18),
+),
+),
+onPressed: () {},
+child: const Text(
+"Continue",
+style: TextStyle(
+fontSize: 18,
+color: Colors.white,
+fontWeight: FontWeight.bold,
+),
+),
+),
+),
 
-                  },
-                  child: const Text(
-                    "Continue",
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ),
+const SizedBox(height: 30),
 
-              const SizedBox(height: 30),
+Row(
+children: [
+Expanded(
+child: Divider(
+color: Colors.grey.shade400,
+),
+),
+const Padding(
+padding: EdgeInsets.symmetric(horizontal: 10),
+child: Text("OR"),
+),
+Expanded(
+child: Divider(
+color: Colors.grey.shade400,
+),
+),
+],
+),
 
-              Row(
-                children: [
-                  Expanded(
-                    child: Divider(
-                      color: Colors.grey.shade400,
-                    ),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10),
-                    child: Text("OR"),
-                  ),
-                  Expanded(
-                    child: Divider(
-                      color: Colors.grey.shade400,
-                    ),
-                  ),
-                ],
-              ),
+const SizedBox(height: 25),
 
-              const SizedBox(height: 25),
+OutlinedButton.icon(
+onPressed: () {},
+style: OutlinedButton.styleFrom(
+minimumSize: const Size(double.infinity, 58),
+side: const BorderSide(color: Colors.blue),
+shape: RoundedRectangleBorder(
+borderRadius: BorderRadius.circular(18),
+),
+),
+icon: const Icon(Icons.phone_android),
+label: const Text(
+"Continue with Phone",
+style: TextStyle(fontSize: 17),
+),
+),
 
-              OutlinedButton.icon(
-                onPressed: () {},
-                style: OutlinedButton.styleFrom(
-                  minimumSize: const Size(double.infinity, 58),
-                  side: const BorderSide(color: Colors.blue),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(18),
-                  ),
-                ),
-                icon: const Icon(Icons.phone_android),
-                label: const Text(
-                  "Continue with Phone",
-                  style: TextStyle(fontSize: 17),
-                ),
-              ),
+const SizedBox(height: 15),
 
-              const SizedBox(height: 15),
+OutlinedButton.icon(
+onPressed: () {},
+style: OutlinedButton.styleFrom(
+minimumSize: const Size(double.infinity, 58),
+side: const BorderSide(color: Colors.red),
+shape: RoundedRectangleBorder(
+borderRadius: BorderRadius.circular(18),
+),
+),
+icon: const Icon(Icons.email_outlined),
+label: const Text(
+"Continue with Email",
+style: TextStyle(fontSize: 17),
+),
+),
 
-              OutlinedButton.icon(
-                onPressed: () {},
-                style: OutlinedButton.styleFrom(
-                  minimumSize: const Size(double.infinity, 58),
-                  side: const BorderSide(color: Colors.red),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(18),
-                  ),
-                ),
-                icon: const Icon(Icons.email_outlined),
-                label: const Text(
-                  "Continue with Email",
-                  style: TextStyle(fontSize: 17),
-                ),
-              ),
+const SizedBox(height: 40),
 
-              const SizedBox(height: 40),
+const Text(
+"By continuing you agree to our\nTerms & Privacy Policy",
+textAlign: TextAlign.center,
+style: TextStyle(
+color: Colors.grey,
+),
+),
 
-              const Text(
-                "By continuing you agree to our\nTerms & Privacy Policy",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.grey,
-                ),
-              ),
-
-              const SizedBox(height: 20),
-            ],
+const SizedBox(height: 25),              Container(
+    padding: const EdgeInsets.all(15),
+    decoration: BoxDecoration(
+      color: Colors.green.shade50,
+      borderRadius: BorderRadius.circular(15),
+      border: Border.all(
+        color: Colors.green,
+      ),
+    ),
+    child: const Row(
+      children: [
+        Icon(
+          Icons.verified_user,
+          color: Colors.green,
+        ),
+        SizedBox(width: 12),
+        Expanded(
+          child: Text(
+            "Your personal information is safe and secure with TopperGuru.",
+            style: TextStyle(
+              fontWeight: FontWeight.w500,
+            ),
           ),
         ),
-      ),
-    );
-  }
+      ],
+    ),
+  ),
+
+  const SizedBox(height: 25),
+
+  Container(
+    padding: const EdgeInsets.symmetric(
+      horizontal: 15,
+      vertical: 12,
+    ),
+    decoration: BoxDecoration(
+      color: Colors.orange.shade50,
+      borderRadius: BorderRadius.circular(15),
+    ),
+    child: const Row(
+      children: [
+        Icon(
+          Icons.info_outline,
+          color: Colors.orange,
+        ),
+        SizedBox(width: 12),
+        Expanded(
+          child: Text(
+            "Login will be enabled after Firebase Authentication is integrated.",
+            style: TextStyle(
+              color: Colors.black87,
+            ),
+          ),
+        ),
+      ],
+    ),
+  ),
+
+  const SizedBox(height: 30),
+],
+),
+),
+),
+);
+}
 }
