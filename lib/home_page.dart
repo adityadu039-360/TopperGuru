@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'sslc_page.dart';
 import 'class11_page.dart';
 import 'class12_page.dart';
+import 'notifications_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -301,11 +302,28 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text("TopperGuru"), centerTitle: true),
-      body: homeBody(),
-    );
-  }
+@override
+Widget build(BuildContext context) {
+return Scaffold(
+appBar: AppBar(
+title: const Text("TopperGuru"),
+centerTitle: true,
+
+actions: [
+IconButton(
+icon: const Icon(Icons.notifications_outlined),
+onPressed: () {
+Navigator.push(
+context,
+MaterialPageRoute(
+builder: (_) => const NotificationsPage(),
+),
+);
+},
+),
+],
+),
+
+body: homeBody(),
+);
 }
